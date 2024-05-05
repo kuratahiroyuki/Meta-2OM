@@ -40,5 +40,5 @@ The final prediction results by the combined model is saved in /data/result/comb
 https://ilearn.erc.monash.edu/  
 
 # History
-from py31/pred_ml_2OM directory in kurata14, base environment  
+from myflask/Meta2-OM/Meta2-OM_GitHub in kurata14, base environment  
 
