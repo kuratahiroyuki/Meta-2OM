@@ -128,12 +128,9 @@ if __name__ == '__main__':
     source_path = os.getcwd()
     data_path = source_path +"/data"
     print(data_path)
-    
-    machine_method=['RF','XGB','SVM','LGBM'] 
-    encode_method=["RCKmer", "DNC", "TNC", "ENAC", "binary", "CKSNAP", "NCP", "ANF", "EIIP","PseEIIP"]   
-    
+
     machine_method = ["LGBM","RF","SVM","XGB","LGBM","CBC","NB","KNN"]
-    encode_method = ["binary","NCP","EIIP","RCKmer","DNC","TNC","CKSNAP","ANF","PseEIIP","ENAC","CTD","BPB","NCP_ND","NPS","NPPS","PseKNC","W2V"]
+    encode_method = ["binary","NCP","EIIP","Kmer", "RCKmer","DNC","TNC","CKSNAP","ANF","PseEIIP","ENAC","CTD","BPB","NCP_ND","NPS","NPPS","PseKNC","W2V"]
           
     combination = []
     for machine in machine_method:
