@@ -24,11 +24,11 @@ def combine_model(valid_data, test_data, data_path, out_dir, kfold):
     model = LogisticRegression(random_state=0)
     rfc = model.fit(train_X, train_y)
     
-    if os.path.isfile('%s/result/combine/%s/%s/lr_model.asv' % (data_path, out_dir, kfold)) :
+    if os.path.isfile('%s/result/%s/%s/lr_model.asv' % (data_path, out_dir, kfold)) :
         pass
     else:
-       os.makedirs('%s/result/combine/%s/%s' % (data_path, out_dir, kfold), exist_ok=True)
-    pickle.dump(rfc, open('%s/result/combine/%s/%s/lr_model.asv' % (data_path, out_dir, kfold), 'wb'))
+       os.makedirs('%s/result/%s/%s' % (data_path, out_dir, kfold), exist_ok=True)
+    pickle.dump(rfc, open('%s/result/%s/%s/lr_model.asv' % (data_path, out_dir, kfold), 'wb'))
 
     
     """
@@ -58,9 +58,9 @@ def combine_model(valid_data, test_data, data_path, out_dir, kfold):
     test_labels = prediction_result_test[0][:,0]   
 
     cv_output = pd.DataFrame(np.array([valid_probs, valid_labels]).T,  columns=['prob', 'label'] )
-    cv_output.to_csv('%s/result/combine/%s/%s/val_roc.csv' % (data_path, out_dir, kfold))   
+    cv_output.to_csv('%s/result/%s/%s/val_roc.csv' % (data_path, out_dir, kfold))   
     test_output = pd.DataFrame(np.array([test_probs, test_labels]).T,  columns=['prob', 'label'] )
-    test_output.to_csv('%s/result/combine/%s/%s/test_roc.csv' % (data_path, out_dir, kfold))
+    test_output.to_csv('%s/result/%s/%s/test_roc.csv' % (data_path, out_dir, kfold))
     
     #print(f'validation: prob label {valid_probs} {valid_labels} ')
     
@@ -120,8 +120,8 @@ def train_test(kfold, data_path, out_dir, combination):
 if __name__ == '__main__':
     
     kfold=5
-    out_name ='combine'
-    outfile = out_name +'.csv'
+    out_dir ='combine'
+    outfile = out_dir +'.csv'
 
     os.chdir("..")
     os.chdir("..")
@@ -129,7 +129,7 @@ if __name__ == '__main__':
     data_path = source_path +"/data"
     print(data_path)
 
-    machine_method = ["LGBM","RF","SVM","XGB","LGBM","CBC","NB","KNN"]
+    machine_method = ["LGBM","CBC","XGB","RF","SVM","LR","NB","KNN"]
     encode_method = ["binary","NCP","EIIP","Kmer", "RCKmer","DNC","TNC","CKSNAP","ANF","PseEIIP","ENAC","CTD","BPB","NCP_ND","NPS","NPPS","PseKNC","W2V"]
           
     combination = []
@@ -141,7 +141,7 @@ if __name__ == '__main__':
     outfile = data_path +'/result/%s' %outfile
 
     for k in range(1, kfold+1):
-        df, df2 = train_test(k, data_path, out_name, combination)
+        df, df2 = train_test(k, data_path, out_dir, combination)
         if k==1:        
             df_cat = df    #train
             df_cat_2 = df2 #test
