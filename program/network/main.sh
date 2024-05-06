@@ -19,7 +19,7 @@ seqwin=41
 
 for machine_method in LGBM RF SVM XGB LGBM CBC NB KNN
 do
-for encode_method in binary NCP EIIP  RCKmer DNC TNC CKSNAP ANF PseEIIP ENAC CTD BPB NCP_ND NPS NPPS PseKNC W2V
+for encode_method in binary NCP EIIP Kmer RCKmer DNC TNC CKSNAP ANF PseEIIP ENAC CTD BPB NCP_ND NPS NPPS PseKNC W2V
 do 
 echo ${machine_method}
 echo ${encode_method}
