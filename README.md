@@ -20,7 +20,7 @@ Before simulation, users build dataset files for cross validataion and independe
   
 # 3 Baseline model
 Encoding: DNC TNC RCKmer ENAC binary CKSNAP NCP ANF EIIP PseEIIP PSTNPss Kmer BPB CTD NCP_ND NPS NPPS PseKNC W2V  
-Machine learning: RF SVM XGB LGBM CBC LR KNN NB  
+Machine learning: LGBM XGB CBC RF SVM LR KNN NB  
 ## 3-1 Training and testing of baseline models
 $cd program/network  
 $sh main.sh  
