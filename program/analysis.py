@@ -58,7 +58,7 @@ def measure_evaluation(score, inpath, roc_file, kfold):
 if __name__ == "__main__":
     ### Input parameter setting ###
     kfold = 5
-    deep_method_item = ["LGBM","RF","SVM","XGB","LGBM","CBC","NB","KNN"]
+    deep_method_item = ["LGBM","CBC","XGB","RF","SVM","LR","NB","KNN"]
     encode_method_item = ["binary","NCP","EIIP","Kmer","RCKmer","DNC","TNC","CKSNAP","ANF","PseEIIP","ENAC","CTD","BPB","NCP_ND","NPS","NPPS","PseKNC","W2V"]
     ###############################
     
